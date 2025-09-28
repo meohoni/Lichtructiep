@@ -22,16 +22,12 @@ output_path = os.path.join(output_dir, f"chuong_trinh_truc_tiep_{today_str}.txt"
 
 EMAIL_USER = os.environ.get("EMAIL_USER")      # Gmail address (set trong GitHub Secrets)
 EMAIL_PASS = os.environ.get("EMAIL_PASS")      # Gmail app password 16 ký tự (set trong GitHub Secrets)
-RECIPIENTS = os.environ.get("RECIPIENTS")      # danh sách email, phân cách bằng dấu phẩy
 
 if not EMAIL_USER or not EMAIL_PASS:
     raise SystemExit("Thiếu EMAIL_USER hoặc EMAIL_PASS trong environment variables.")
 
-# parse recipients
-if RECIPIENTS:
-    recipients = [e.strip() for e in RECIPIENTS.split(",") if e.strip()]
-else:
-    recipients = ["nguyenthithanhtam7382@gmail.com", "thanhtam2a@yahoo.com"]
+# parse recipients    
+recipients = ["nguyenthithanhtam7382@gmail.com", "thanhtam2a@yahoo.com"]
 
 print(f"Đã nạp {len(stations)} đài.")
 
