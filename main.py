@@ -31,7 +31,7 @@ if not EMAIL_USER or not EMAIL_PASS:
 if RECIPIENTS:
     recipients = [e.strip() for e in RECIPIENTS.split(",") if e.strip()]
 else:
-    recipients = ["nguoi1@example.com"]
+    recipients = ["nguyenthithanhtam7382@gmail.com"]
 
 print(f"Đã nạp {len(stations)} đài.")
 
