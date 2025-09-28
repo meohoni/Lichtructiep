@@ -10,6 +10,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email import encoders
 
+# Import danh sách đài từ file stations.py
+from stations import stations
+
 # --- Config / env ---
 vn_tz = pytz.timezone("Asia/Ho_Chi_Minh")
 today_str = datetime.now(vn_tz).strftime("%Y-%m-%d")
@@ -17,9 +20,9 @@ output_dir = "output"
 os.makedirs(output_dir, exist_ok=True)
 output_path = os.path.join(output_dir, f"chuong_trinh_truc_tiep_{today_str}.txt")
 
-EMAIL_USER = os.environ.get("EMAIL_USER")      # ví dụ: your@gmail.com (set trong GitHub Secrets)
-EMAIL_PASS = os.environ.get("EMAIL_PASS")      # app password 16 ký tự (set trong GitHub Secrets)
-RECIPIENTS = os.environ.get("RECIPIENTS")      # danh sách email phân cách bằng dấu phẩy (set trong GitHub Secrets)
+EMAIL_USER = os.environ.get("EMAIL_USER")      # Gmail address (set trong GitHub Secrets)
+EMAIL_PASS = os.environ.get("EMAIL_PASS")      # Gmail app password 16 ký tự (set trong GitHub Secrets)
+RECIPIENTS = os.environ.get("RECIPIENTS")      # danh sách email, phân cách bằng dấu phẩy
 
 if not EMAIL_USER or not EMAIL_PASS:
     raise SystemExit("Thiếu EMAIL_USER hoặc EMAIL_PASS trong environment variables.")
@@ -28,20 +31,11 @@ if not EMAIL_USER or not EMAIL_PASS:
 if RECIPIENTS:
     recipients = [e.strip() for e in RECIPIENTS.split(",") if e.strip()]
 else:
-    # fallback: nếu không set secret RECIPIENTS, sửa list tạm ở đây
-    recipients = ["nguoi1@example.com", "nguoi2@example.com"]
-
-# --- Stations (rút gọn; bạn có thể thay bằng danh sách đầy đủ) ---
-stations = {
-    "VTV1 HD": "https://baomoi.com/tien-ich-lich-truyen-hinh-vtv1-hd.epi",
-    "VTV3 HD": "https://baomoi.com/tien-ich-lich-truyen-hinh-vtv3-hd.epi",
-    "HTV7 HD": "https://baomoi.com/tien-ich-lich-truyen-hinh-htv7-hd.epi",
-    "HTV9 HD": "https://baomoi.com/tien-ich-lich-truyen-hinh-htv9-hd.epi",
-    # thêm các đài khác nếu cần...
-}
+    recipients = ["nguoi1@example.com"]
 
 print(f"Đã nạp {len(stations)} đài.")
 
+# --- Thu thập lịch phát sóng ---
 collected = []
 
 for name, url in stations.items():
@@ -128,7 +122,7 @@ with open(output_path, "w", encoding="utf-8") as f:
 
 print(f"Đã lưu {len(lines)} dòng vào {output_path}")
 
-# --- SEND EMAIL with attachment ---
+# --- Gửi email ---
 subject = f"Lịch trực tiếp {today_str} ({len(lines)} mục)"
 
 msg = MIMEMultipart()
