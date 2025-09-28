@@ -1,4 +1,4 @@
-name: Send Gmail every morning main
+name: Send Gmail every morning send delete
 
 on:
   workflow_dispatch:        # Cho phép chạy thủ công
