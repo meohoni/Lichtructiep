@@ -110,13 +110,10 @@ for name, url in stations.items():
         print("Lỗi khi xử lý:", name, e)
 
 collected.sort(key=lambda x: x[0])
-# đánh số thứ tự sau khi sort
 lines = []
-for idx, (_, line) in enumerate(collected, start=1):
-    # thêm số thứ tự ở đầu line
-    lines.append(f"{idx}. {line.split('. ', 1)[-1]}")  
+# --- đánh số thứ tự sau khi sort ---
+lines = [f"{idx}. {line}" for idx, (_, line) in enumerate(collected, start=1)]
 
-lines = [line for _, line in collected]
 body_text = "\n".join(lines) if lines else "Không tìm thấy chương trình trực tiếp nào hôm nay."
 
 # Save to txt
