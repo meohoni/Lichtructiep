@@ -29,7 +29,7 @@ if not EMAIL_USER or not EMAIL_PASS:
 # parse recipients    
 recipients = ["nguyenthithanhtam7382@gmail.com", "thanhtam2a@yahoo.com", "Fromtrawithlove@gmail.com", "Camvu86@gmail.com"]
 
-print(f"Đã nạp {len(stations)} đài.")
+print(f"Đã nạp {len(stations)} đài. ")
 
 # --- Thu thập lịch phát sóng ---
 collected = []
