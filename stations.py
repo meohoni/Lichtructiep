@@ -40,7 +40,6 @@ stations = {
     "Hòa Bình HBTV": "https://baomoi.com/tien-ich-lich-truyen-hinh-hoabinhtv-hbtv.epi",
     "HTV1": "https://baomoi.com/tien-ich-lich-truyen-hinh-htv1.epi",
     "HTV2 HD": "https://baomoi.com/tien-ich-lich-truyen-hinh-htv2-hd.epi",
-    "HTV4": "https://baomoi.com/tien-ich-lich-truyen-hinh-htv4.epi",
     "HTV7 HD": "https://baomoi.com/tien-ich-lich-truyen-hinh-htv7-hd.epi",
     "HTV9 HD": "https://baomoi.com/tien-ich-lich-truyen-hinh-htv9-hd.epi",
     "Huế TRT1": "https://baomoi.com/tien-ich-lich-truyen-hinh-huetv1-trt1.epi",
