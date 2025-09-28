@@ -1,4 +1,4 @@
-# main.py chay
+# main.py
 import os
 import requests
 from bs4 import BeautifulSoup
