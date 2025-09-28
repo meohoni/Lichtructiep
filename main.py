@@ -65,7 +65,7 @@ for name, url in stations.items():
             prog_lower = program.lower()
             if time_text == "00:55":
                 continue
-            if not ("trực tiếp" in prog_lower or "tường thuật trực tiếp" in prog_lower or "truc tiep" in prog_lower):
+            if not ("trực tiếp" in prog_lower or "tường thuật trực tiếp" in prog_lower or "truc tiep" in prog_lower or "thtt" in prog_lower):
                 continue
             if any(x in prog_lower for x in ["sông vàm ngày mới", "xổ số", "thể thao", "thời sự", "tiếp sóng trực tiếp"]):
                 continue
