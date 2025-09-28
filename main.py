@@ -33,6 +33,7 @@ print(f"Đã nạp {len(stations)} đài. ")
 
 # --- Thu thập lịch phát sóng ---
 collected = []
+stt = 1
 
 for name, url in stations.items():
     try:
@@ -102,8 +103,9 @@ for name, url in stations.items():
             hours = total_seconds // 3600
             minutes = (total_seconds % 3600) // 60
 
-            line = f"+ {date_fmt} {time_text} {name} {program} → thời lượng {hours}h{minutes}m"
+            line = f"{stt}. {date_fmt} {time_text} {name} {program} → thời lượng {hours}h{minutes}m"
             collected.append((t1, line))
+            stt = stt + 1
 
     except Exception as e:
         print("Lỗi khi xử lý:", name, e)
