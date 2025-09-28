@@ -1,0 +1,27 @@
+name: Send Gmail every morning
+
+on:
+  schedule:
+    - cron: "0 23 * * *"   # 6h sáng giờ VN = 23h hôm trước UTC
+  workflow_dispatch:        # Cho phép chạy thủ công
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run script
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_PASSWORD: ${{ secrets.GMAIL_PASSWORD }}
+        run: python send_email.py
