@@ -33,7 +33,6 @@ print(f"Đã nạp {len(stations)} đài. ")
 
 # --- Thu thập lịch phát sóng ---
 collected = []
-stt = 1
 
 for name, url in stations.items():
     try:
@@ -103,7 +102,7 @@ for name, url in stations.items():
             hours = total_seconds // 3600
             minutes = (total_seconds % 3600) // 60
 
-            line = f"{stt}. {date_fmt} {time_text} {name} {program} → thời lượng {hours}h{minutes}m"
+            line = f"{date_fmt} {time_text} {name} {program} → thời lượng {hours}h{minutes}m"
             collected.append((t1, line))
             stt = stt + 1
 
@@ -111,6 +110,12 @@ for name, url in stations.items():
         print("Lỗi khi xử lý:", name, e)
 
 collected.sort(key=lambda x: x[0])
+# đánh số thứ tự sau khi sort
+lines = []
+for idx, (_, line) in enumerate(collected, start=1):
+    # thêm số thứ tự ở đầu line
+    lines.append(f"{idx}. {line.split('. ', 1)[-1]}")  
+
 lines = [line for _, line in collected]
 body_text = "\n".join(lines) if lines else "Không tìm thấy chương trình trực tiếp nào hôm nay."
 
