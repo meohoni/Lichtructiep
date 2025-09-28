@@ -1,4 +1,4 @@
-name: Send Gmail every morning
+name: Send Gmail every morning main
 
 on:
   schedule:
