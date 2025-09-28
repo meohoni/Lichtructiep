@@ -2,7 +2,7 @@ name: Send Gmail every morning
 
 on:
   schedule:
-    - cron: "0 23 * * *"   # 6h sáng giờ VN (23h hôm trước UTC)
+    - cron: "0 4 * * *"   # 6h sáng giờ VN (23h hôm trước UTC)
   workflow_dispatch:        # Cho phép chạy thủ công
 
 jobs:
