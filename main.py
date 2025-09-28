@@ -27,7 +27,7 @@ if not EMAIL_USER or not EMAIL_PASS:
     raise SystemExit("Thiếu EMAIL_USER hoặc EMAIL_PASS trong environment variables.")
 
 # parse recipients    
-recipients = ["nguyenthithanhtam7382@gmail.com", "thanhtam2a@yahoo.com"]
+recipients = ["thanhtam2a@yahoo.com", "nguyenthithanhtam7382@gmail.com", "thanhtam2a@yahoo.com"]
 
 print(f"Đã nạp {len(stations)} đài.")
 
