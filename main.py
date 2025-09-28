@@ -67,7 +67,7 @@ for name, url in stations.items():
                 continue
             if not ("trực tiếp" in prog_lower or "tường thuật trực tiếp" in prog_lower or "truc tiep" in prog_lower):
                 continue
-            if any(x in prog_lower for x in ["xổ số", "thể thao", "thời sự", "tiếp sóng trực tiếp"]):
+            if any(x in prog_lower for x in ["sông vàm ngày mới", "xổ số", "thể thao", "thời sự", "tiếp sóng trực tiếp"]):
                 continue
 
             try:
